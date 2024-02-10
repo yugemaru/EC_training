@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ComponentTestController;
+use App\Http\Controllers\LifiCycleTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']);
+Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']);
+Route::get('/servicecontainertest', [LifiCycleTestController::class, 'showServiceContainerTest']);
+Route::get('/serviceprovidertest', [LifiCycleTestController::class, 'showServiceProviderTest']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
