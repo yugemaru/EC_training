@@ -16,7 +16,7 @@ use App\Http\Controllers\LifiCycleTestController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.welcome');
 });
 
 Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']);
@@ -25,7 +25,7 @@ Route::get('/servicecontainertest', [LifiCycleTestController::class, 'showServic
 Route::get('/serviceprovidertest', [LifiCycleTestController::class, 'showServiceProviderTest']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return view('user.dashboard');
+})->middleware(['auth:users'])->name('dashboard');
 
 require __DIR__.'/auth.php';
